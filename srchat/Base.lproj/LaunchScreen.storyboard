@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="srchat" translatesAutoresizingMaskIntoConstraints="NO" id="WTg-Sb-ErX">
+                                <rect key="frame" x="26" y="219" width="322" height="265"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="322" id="5F1-qf-Iy9"/>
+                                    <constraint firstAttribute="height" constant="265" id="ffj-gT-41X"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SRCh@T" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ms-hh-m8T">
+                                <rect key="frame" x="138" y="314" width="98" height="39"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.24046950014925983" green="0.33529391331258945" blue="0.55991586538461546" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="9ms-hh-m8T" firstAttribute="leading" secondItem="WTg-Sb-ErX" secondAttribute="trailing" constant="-210" id="22I-I4-utd"/>
+                            <constraint firstItem="WTg-Sb-ErX" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="QUR-mx-edN"/>
+                            <constraint firstItem="WTg-Sb-ErX" firstAttribute="top" secondItem="9ms-hh-m8T" secondAttribute="bottom" constant="-134" id="kUj-NV-Nog"/>
+                            <constraint firstItem="WTg-Sb-ErX" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="18" id="wKD-1n-o7L"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="srchat" width="512" height="512"/>
+    </resources>
+</document>

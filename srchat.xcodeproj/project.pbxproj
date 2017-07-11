@@ -1,0 +1,400 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3BC99FFD89A6828EE2E04D15 /* Pods_srchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030446C51EE50A814AA9DB5C /* Pods_srchat.framework */; };
+		F26447D91F14CD9900001B7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26447D81F14CD9900001B7A /* GoogleService-Info.plist */; };
+		F26447DB1F14E37300001B7A /* customView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DA1F14E37200001B7A /* customView.swift */; };
+		F26447DD1F14EB5300001B7A /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DC1F14EB5300001B7A /* customButton.swift */; };
+		F26447DF1F14F40400001B7A /* customSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DE1F14F40400001B7A /* customSegmentedControl.swift */; };
+		F2EA2CA91F14CBC700EF605E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA2CA81F14CBC700EF605E /* AppDelegate.swift */; };
+		F2EA2CAB1F14CBC700EF605E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA2CAA1F14CBC700EF605E /* ViewController.swift */; };
+		F2EA2CAE1F14CBC700EF605E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2EA2CAC1F14CBC700EF605E /* Main.storyboard */; };
+		F2EA2CB01F14CBC700EF605E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2EA2CAF1F14CBC700EF605E /* Assets.xcassets */; };
+		F2EA2CB31F14CBC800EF605E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2EA2CB11F14CBC800EF605E /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		030446C51EE50A814AA9DB5C /* Pods_srchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_srchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		48CA056830E1C49B81D6B481 /* Pods-srchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-srchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-srchat/Pods-srchat.debug.xcconfig"; sourceTree = "<group>"; };
+		F26447D81F14CD9900001B7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F26447DA1F14E37200001B7A /* customView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customView.swift; sourceTree = "<group>"; };
+		F26447DC1F14EB5300001B7A /* customButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
+		F26447DE1F14F40400001B7A /* customSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customSegmentedControl.swift; sourceTree = "<group>"; };
+		F2EA2CA51F14CBC700EF605E /* srchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = srchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2EA2CA81F14CBC700EF605E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F2EA2CAA1F14CBC700EF605E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F2EA2CAD1F14CBC700EF605E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F2EA2CAF1F14CBC700EF605E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F2EA2CB21F14CBC800EF605E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F2EA2CB41F14CBC800EF605E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7E51E7579BC77C6752A2E2C /* Pods-srchat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-srchat.release.xcconfig"; path = "Pods/Target Support Files/Pods-srchat/Pods-srchat.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2EA2CA21F14CBC500EF605E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3BC99FFD89A6828EE2E04D15 /* Pods_srchat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08F79F025CC84CBE76AFBBF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F26447D81F14CD9900001B7A /* GoogleService-Info.plist */,
+				030446C51EE50A814AA9DB5C /* Pods_srchat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		989C7CA9A35E43DD65E38FA2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				48CA056830E1C49B81D6B481 /* Pods-srchat.debug.xcconfig */,
+				F7E51E7579BC77C6752A2E2C /* Pods-srchat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F2EA2C9C1F14CBC500EF605E = {
+			isa = PBXGroup;
+			children = (
+				F2EA2CA71F14CBC700EF605E /* srchat */,
+				F2EA2CA61F14CBC700EF605E /* Products */,
+				989C7CA9A35E43DD65E38FA2 /* Pods */,
+				08F79F025CC84CBE76AFBBF3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		F2EA2CA61F14CBC700EF605E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2EA2CA51F14CBC700EF605E /* srchat.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F2EA2CA71F14CBC700EF605E /* srchat */ = {
+			isa = PBXGroup;
+			children = (
+				F2EA2CA81F14CBC700EF605E /* AppDelegate.swift */,
+				F2EA2CAA1F14CBC700EF605E /* ViewController.swift */,
+				F2EA2CAC1F14CBC700EF605E /* Main.storyboard */,
+				F2EA2CAF1F14CBC700EF605E /* Assets.xcassets */,
+				F2EA2CB11F14CBC800EF605E /* LaunchScreen.storyboard */,
+				F2EA2CB41F14CBC800EF605E /* Info.plist */,
+				F26447DA1F14E37200001B7A /* customView.swift */,
+				F26447DC1F14EB5300001B7A /* customButton.swift */,
+				F26447DE1F14F40400001B7A /* customSegmentedControl.swift */,
+			);
+			path = srchat;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F2EA2CA41F14CBC500EF605E /* srchat */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F2EA2CB71F14CBC800EF605E /* Build configuration list for PBXNativeTarget "srchat" */;
+			buildPhases = (
+				25D6C6C320E0FCAF3C633879 /* [CP] Check Pods Manifest.lock */,
+				F2EA2CA11F14CBC500EF605E /* Sources */,
+				F2EA2CA21F14CBC500EF605E /* Frameworks */,
+				F2EA2CA31F14CBC500EF605E /* Resources */,
+				784E2DD70959379CA640ECBC /* [CP] Embed Pods Frameworks */,
+				41EBC77998DC66E8161D5E27 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = srchat;
+			productName = srchat;
+			productReference = F2EA2CA51F14CBC700EF605E /* srchat.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F2EA2C9D1F14CBC500EF605E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Syed Shahrukh Haider";
+				TargetAttributes = {
+					F2EA2CA41F14CBC500EF605E = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = F2EA2CA01F14CBC500EF605E /* Build configuration list for PBXProject "srchat" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F2EA2C9C1F14CBC500EF605E;
+			productRefGroup = F2EA2CA61F14CBC700EF605E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F2EA2CA41F14CBC500EF605E /* srchat */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F2EA2CA31F14CBC500EF605E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F2EA2CB31F14CBC800EF605E /* LaunchScreen.storyboard in Resources */,
+				F26447D91F14CD9900001B7A /* GoogleService-Info.plist in Resources */,
+				F2EA2CB01F14CBC700EF605E /* Assets.xcassets in Resources */,
+				F2EA2CAE1F14CBC700EF605E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25D6C6C320E0FCAF3C633879 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		41EBC77998DC66E8161D5E27 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-srchat/Pods-srchat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		784E2DD70959379CA640ECBC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-srchat/Pods-srchat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F2EA2CA11F14CBC500EF605E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F26447DD1F14EB5300001B7A /* customButton.swift in Sources */,
+				F26447DF1F14F40400001B7A /* customSegmentedControl.swift in Sources */,
+				F2EA2CAB1F14CBC700EF605E /* ViewController.swift in Sources */,
+				F26447DB1F14E37300001B7A /* customView.swift in Sources */,
+				F2EA2CA91F14CBC700EF605E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F2EA2CAC1F14CBC700EF605E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2EA2CAD1F14CBC700EF605E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		F2EA2CB11F14CBC800EF605E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F2EA2CB21F14CBC800EF605E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F2EA2CB51F14CBC800EF605E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F2EA2CB61F14CBC800EF605E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F2EA2CB81F14CBC800EF605E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 48CA056830E1C49B81D6B481 /* Pods-srchat.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = srchat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.perception.srchat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		F2EA2CB91F14CBC800EF605E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F7E51E7579BC77C6752A2E2C /* Pods-srchat.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = srchat/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.perception.srchat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F2EA2CA01F14CBC500EF605E /* Build configuration list for PBXProject "srchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2EA2CB51F14CBC800EF605E /* Debug */,
+				F2EA2CB61F14CBC800EF605E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F2EA2CB71F14CBC800EF605E /* Build configuration list for PBXNativeTarget "srchat" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F2EA2CB81F14CBC800EF605E /* Debug */,
+				F2EA2CB91F14CBC800EF605E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F2EA2C9D1F14CBC500EF605E /* Project object */;
+}
