@@ -13,6 +13,9 @@
 		F26447DD1F14EB5300001B7A /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DC1F14EB5300001B7A /* customButton.swift */; };
 		F26447DF1F14F40400001B7A /* customSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DE1F14F40400001B7A /* customSegmentedControl.swift */; };
 		F26447E11F150E2400001B7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26447E01F150E2400001B7A /* GoogleService-Info.plist */; };
+		F2A26D1A1F163CEE007E4F6E /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A26D191F163CEE007E4F6E /* helper.swift */; };
+		F2A26D1D1F163D48007E4F6E /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A26D1C1F163D48007E4F6E /* chatViewController.swift */; };
+		F2A26D211F163EF6007E4F6E /* chatStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A26D201F163EF6007E4F6E /* chatStruct.swift */; };
 		F2EA2CA91F14CBC700EF605E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA2CA81F14CBC700EF605E /* AppDelegate.swift */; };
 		F2EA2CAB1F14CBC700EF605E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EA2CAA1F14CBC700EF605E /* ViewController.swift */; };
 		F2EA2CAE1F14CBC700EF605E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F2EA2CAC1F14CBC700EF605E /* Main.storyboard */; };
@@ -28,6 +31,9 @@
 		F26447DC1F14EB5300001B7A /* customButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
 		F26447DE1F14F40400001B7A /* customSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customSegmentedControl.swift; sourceTree = "<group>"; };
 		F26447E01F150E2400001B7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F2A26D191F163CEE007E4F6E /* helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
+		F2A26D1C1F163D48007E4F6E /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
+		F2A26D201F163EF6007E4F6E /* chatStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatStruct.swift; sourceTree = "<group>"; };
 		F2EA2CA51F14CBC700EF605E /* srchat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = srchat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2EA2CA81F14CBC700EF605E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F2EA2CAA1F14CBC700EF605E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +74,43 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F2A26D1B1F163D02007E4F6E /* customization */ = {
+			isa = PBXGroup;
+			children = (
+				F26447DA1F14E37200001B7A /* customView.swift */,
+				F26447DC1F14EB5300001B7A /* customButton.swift */,
+				F26447DE1F14F40400001B7A /* customSegmentedControl.swift */,
+			);
+			name = customization;
+			sourceTree = "<group>";
+		};
+		F2A26D1E1F163D6D007E4F6E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F2EA2CAA1F14CBC700EF605E /* ViewController.swift */,
+				F2A26D1C1F163D48007E4F6E /* chatViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		F2A26D1F1F163D76007E4F6E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F2A26D191F163CEE007E4F6E /* helper.swift */,
+				F2A26D201F163EF6007E4F6E /* chatStruct.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F2A26D221F1651F4007E4F6E /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				F2EA2CAC1F14CBC700EF605E /* Main.storyboard */,
+				F2EA2CB11F14CBC800EF605E /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
 		F2EA2C9C1F14CBC500EF605E = {
 			isa = PBXGroup;
 			children = (
@@ -90,14 +133,12 @@
 			isa = PBXGroup;
 			children = (
 				F2EA2CA81F14CBC700EF605E /* AppDelegate.swift */,
-				F2EA2CAA1F14CBC700EF605E /* ViewController.swift */,
-				F2EA2CAC1F14CBC700EF605E /* Main.storyboard */,
+				F2A26D1B1F163D02007E4F6E /* customization */,
+				F2A26D1E1F163D6D007E4F6E /* Controller */,
+				F2A26D1F1F163D76007E4F6E /* Model */,
+				F2A26D221F1651F4007E4F6E /* Storyboard */,
 				F2EA2CAF1F14CBC700EF605E /* Assets.xcassets */,
-				F2EA2CB11F14CBC800EF605E /* LaunchScreen.storyboard */,
 				F2EA2CB41F14CBC800EF605E /* Info.plist */,
-				F26447DA1F14E37200001B7A /* customView.swift */,
-				F26447DC1F14EB5300001B7A /* customButton.swift */,
-				F26447DE1F14F40400001B7A /* customSegmentedControl.swift */,
 				F26447E01F150E2400001B7A /* GoogleService-Info.plist */,
 			);
 			path = srchat;
@@ -228,10 +269,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2A26D211F163EF6007E4F6E /* chatStruct.swift in Sources */,
 				F26447DD1F14EB5300001B7A /* customButton.swift in Sources */,
 				F26447DF1F14F40400001B7A /* customSegmentedControl.swift in Sources */,
 				F2EA2CAB1F14CBC700EF605E /* ViewController.swift in Sources */,
+				F2A26D1A1F163CEE007E4F6E /* helper.swift in Sources */,
 				F26447DB1F14E37300001B7A /* customView.swift in Sources */,
+				F2A26D1D1F163D48007E4F6E /* chatViewController.swift in Sources */,
 				F2EA2CA91F14CBC700EF605E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

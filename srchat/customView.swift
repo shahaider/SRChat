@@ -15,11 +15,7 @@ import UIKit
     @IBInspectable var SO_Height: CGFloat = 5
     @IBInspectable  var SO_Color : UIColor = UIColor.black
     @IBInspectable var SO_Opacity : Float = 0
-//    didSet{
-//    
-//     layer.cornerRadius = self.cRadius
-//    
-//    }
+
     
     override func layoutSubviews() {
         layer.cornerRadius = self.cRadius

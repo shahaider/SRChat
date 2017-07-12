@@ -7,12 +7,9 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseDatabase
+import GoogleSignIn
 
-
-class ViewController: UIViewController {
+class ViewController: UIViewController, GIDSignInUIDelegate {
 
     // associate storyboard components
     @IBOutlet weak var selection: customSegmentedControl!
@@ -22,16 +19,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var confirmpasswordTextField: UITextField!
    
     // variable for VC
-    var emailValue: String?
-    var passwordValue : String?
-    var confirmpasswordValue : String?
-
-    // variable for Firebase
     
-    var ref : DatabaseReference?
+    var name: String?
+    var email: String?
+    var password : String?
+    var confirmpassword : String?
+
+    
+//    var ref : DatabaseReference?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // GOOGLE LOGIN STUFF
+        GIDSignIn.sharedInstance().uiDelegate = self
+//        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().clientID = "1096381658159-23gk0fjf4q6je5q9ud26e9hduu3chf7f.apps.googleusercontent.com"
+        
         
         // hiding textField
         nameTextField.isHidden = true
@@ -39,53 +44,85 @@ class ViewController: UIViewController {
         
     }
 
+ 
+    
+    
+    
+// ----------------- ACTION ON SEGMENT CONTROL BUTTON ----------------------------
+    
+    
+    
+    
     
     @IBAction func selectionButton(_ sender: Any) {
-        // LOGIN Selected
+       
+        
+        /*
+         
+         ************************* LOGIN Selected *************************
+         
+         */
+        
         if selection.selectedSegmentIndex == 0
         {
        nameTextField.isHidden = true
     confirmpasswordTextField.isHidden = true
-            
-          
-        
+   
         }
             
-            // REGISTER Selected
+            
+            
+            
+            /*
+ 
+             ************************* REGISTER Selected *************************
+             
+             
+             */
         else{
             nameTextField.isHidden = false
             confirmpasswordTextField.isHidden = false
-            
-            
-
-            
         }
     }
     
-// action on pressing submit
+    
+    
+    
+    
+    
+    
+// ----------------- ACTION ON SUBMIT BUTTON ----------------------------
+   
+    
     @IBAction func submitButton(_ sender: Any) {
 
-        // FOR REGISTER SCENARIO
-        emailValue = emailTextField.text!
-        passwordValue = passwordTextField.text!
-        confirmpasswordValue = confirmpasswordTextField.text!
-        print("value: " + passwordValue! + " " + confirmpasswordValue!)
+        /* 
+         
+        ************************* FOR REGISTER SCENARIO *************************
+         
+         
+         */
+        
+        
+        
+       name = nameTextField.text!
+      email = emailTextField.text!
+        password = passwordTextField.text!
+        confirmpassword = confirmpasswordTextField.text!
+        
+        let userInfo: chatRoom = chatRoom(nameValue: name!, emailValue: email!, passwordValue: password!, confirmpasswordValue: confirmpassword!)
+        
 
         if selection.selectedSegmentIndex == 1{
-            if passwordValue == confirmpasswordValue{
+            if password! == confirmpassword! {
+                print("value: " + password! + " " + confirmpassword!)
                 
-                var randomID = self.ref?.childByAutoId().key
-                
-                Auth.auth().createUser(withEmail: emailValue!, password: passwordValue!) { (user, error) in
-                    if user != nil{
-                        self.ref = Database.database().reference()
-                        self.ref?.child(randomID!).child("Name").setValue(self.nameTextField.text!)
-                        self.ref?.child(randomID!).child("Email").setValue(self.emailValue)
-                        print("SUCCESSFUL")
+// SAVE value in chatroom array
+                chatRoom.userInfo = userInfo
 
-                    }
-                   
-                }
+// CALL EMAIL REGISTTER FUCNTION
+                helper.Help.emailReg()
+                
             }
             
             else{
@@ -94,18 +131,31 @@ class ViewController: UIViewController {
        
         }
             
-            // FOR LOGIN SCENARIO
-        else{
-        Auth.auth().signIn(withEmail: emailValue!, password: passwordValue!, completion: { (user, error) in
-            if user != nil{
-            print("Sign IN Success")
-            
-            }
-           
-        })
-        }
-    }
 
+            
+            
+            /*
+             
+           *************************  FOR LOGIN SCENARIO *************************
+        
+        
+             */
+            
+        else{
+            
+            helper.Help.login()
+            
+    }
+}
+    
+// ----------------- ACTION ON GOOGLE BUTTON ----------------------------
+    @IBAction func googleButton(_ sender: Any) {
+        
+        GIDSignIn.sharedInstance().signIn()
+        helper.Help.loginInGoogle()
+    }
+    
+    
 }
 
  
