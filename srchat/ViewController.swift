@@ -8,8 +8,10 @@
 
 import UIKit
 import GoogleSignIn
+import Firebase
+import FirebaseAuth
 
-class ViewController: UIViewController, GIDSignInUIDelegate {
+class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
     // associate storyboard components
     @IBOutlet weak var selection: customSegmentedControl!
@@ -17,6 +19,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmpasswordTextField: UITextField!
+    @IBOutlet weak var notification: UILabel!
    
     // variable for VC
     
@@ -34,7 +37,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
         // GOOGLE LOGIN STUFF
         GIDSignIn.sharedInstance().uiDelegate = self
-//        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance().clientID = "1096381658159-23gk0fjf4q6je5q9ud26e9hduu3chf7f.apps.googleusercontent.com"
         
         
@@ -89,14 +92,19 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
     
     
     
-    
-    
 // ----------------- ACTION ON SUBMIT BUTTON ----------------------------
    
     
     @IBAction func submitButton(_ sender: Any) {
+        
+        name = nameTextField.text!
+        email = emailTextField.text!
+        password = passwordTextField.text!
+        confirmpassword = confirmpasswordTextField.text!
 
-        /* 
+        
+        
+        /*
          
         ************************* FOR REGISTER SCENARIO *************************
          
@@ -105,28 +113,28 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
         
         
         
-       name = nameTextField.text!
-      email = emailTextField.text!
-        password = passwordTextField.text!
-        confirmpassword = confirmpasswordTextField.text!
+
         
-        let userInfo: chatRoom = chatRoom(nameValue: name!, emailValue: email!, passwordValue: password!, confirmpasswordValue: confirmpassword!)
+
         
 
         if selection.selectedSegmentIndex == 1{
+               let reguserInfo: chatRoom = chatRoom(nameValue: name!, emailValue: email!, passwordValue: password!, confirmpasswordValue: confirmpassword!)
             if password! == confirmpassword! {
                 print("value: " + password! + " " + confirmpassword!)
                 
 // SAVE value in chatroom array
-                chatRoom.userInfo = userInfo
+                chatRoom.userInfo = reguserInfo
 
 // CALL EMAIL REGISTTER FUCNTION
                 helper.Help.emailReg()
+                nextVC()
                 
             }
             
             else{
-            print("Password doesnot match")
+           notification.text = "Password doesnot match"
+                
             }
        
         }
@@ -142,19 +150,48 @@ class ViewController: UIViewController, GIDSignInUIDelegate {
              */
             
         else{
+           
+            let loginuserInfo: chatRoom = chatRoom(nameValue: "", emailValue: email!, passwordValue: password!, confirmpasswordValue: "")
             
-            helper.Help.login()
+            chatRoom.userInfo = loginuserInfo
+
             
-    }
+          Auth.auth().signIn(withEmail: email!, password: password!, completion: { (user, err) in
+            if err == nil{
+            print(user?.uid)
+                chatHelper.chathelp.userIdentity = (user?.uid)!
+                self.nextVC()
+            }
+            else{
+                print(err)
+            self.notification.text = "ERROR"
+            }
+          })
+            
+                    }
 }
     
 // ----------------- ACTION ON GOOGLE BUTTON ----------------------------
     @IBAction func googleButton(_ sender: Any) {
         
         GIDSignIn.sharedInstance().signIn()
-        helper.Help.loginInGoogle()
     }
     
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        print (user.authentication)
+        helper.Help.loginInGoogle(userAuth:user.authentication)
+        
+    
+        nextVC()
+   
+        
+
+    }
+    
+    func nextVC(){
+    
+        performSegue(withIdentifier: "naviController", sender: self)
+    }
     
 }
 

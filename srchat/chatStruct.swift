@@ -12,6 +12,8 @@ import Foundation
 struct chatRoom{
 
     static var userInfo = chatRoom(nameValue: "", emailValue: "", passwordValue: "", confirmpasswordValue: "")
+   
+    
     var nameValue : String
     var emailValue : String
     var passwordValue: String

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3BC99FFD89A6828EE2E04D15 /* Pods_srchat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 030446C51EE50A814AA9DB5C /* Pods_srchat.framework */; };
+		F22081FE1F18A3D400351B10 /* chatHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22081FD1F18A3D400351B10 /* chatHelper.swift */; };
 		F26447D91F14CD9900001B7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26447D81F14CD9900001B7A /* GoogleService-Info.plist */; };
 		F26447DB1F14E37300001B7A /* customView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DA1F14E37200001B7A /* customView.swift */; };
 		F26447DD1F14EB5300001B7A /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DC1F14EB5300001B7A /* customButton.swift */; };
@@ -26,6 +27,7 @@
 /* Begin PBXFileReference section */
 		030446C51EE50A814AA9DB5C /* Pods_srchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_srchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CA056830E1C49B81D6B481 /* Pods-srchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-srchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-srchat/Pods-srchat.debug.xcconfig"; sourceTree = "<group>"; };
+		F22081FD1F18A3D400351B10 /* chatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHelper.swift; sourceTree = "<group>"; };
 		F26447D81F14CD9900001B7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F26447DA1F14E37200001B7A /* customView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customView.swift; sourceTree = "<group>"; };
 		F26447DC1F14EB5300001B7A /* customButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				F2A26D191F163CEE007E4F6E /* helper.swift */,
+				F22081FD1F18A3D400351B10 /* chatHelper.swift */,
 				F2A26D201F163EF6007E4F6E /* chatStruct.swift */,
 			);
 			name = Model;
@@ -274,6 +277,7 @@
 				F26447DF1F14F40400001B7A /* customSegmentedControl.swift in Sources */,
 				F2EA2CAB1F14CBC700EF605E /* ViewController.swift in Sources */,
 				F2A26D1A1F163CEE007E4F6E /* helper.swift in Sources */,
+				F22081FE1F18A3D400351B10 /* chatHelper.swift in Sources */,
 				F26447DB1F14E37300001B7A /* customView.swift in Sources */,
 				F2A26D1D1F163D48007E4F6E /* chatViewController.swift in Sources */,
 				F2EA2CA91F14CBC700EF605E /* AppDelegate.swift in Sources */,

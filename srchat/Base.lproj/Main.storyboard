@@ -93,6 +93,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kkA-yZ-9wN">
+                                        <rect key="frame" x="44" y="141" width="246" height="92"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.78877617799999999" green="0.16532660969999999" blue="0.062540091359999994" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -165,8 +172,10 @@
                         <outlet property="confirmpasswordTextField" destination="39Q-d1-Lbn" id="Ref-jt-BNH"/>
                         <outlet property="emailTextField" destination="yXm-Q2-rJc" id="tkc-4r-19B"/>
                         <outlet property="nameTextField" destination="x3z-wq-MWt" id="Ake-bz-5ca"/>
+                        <outlet property="notification" destination="kkA-yZ-9wN" id="jt3-Q1-kHq"/>
                         <outlet property="passwordTextField" destination="n5y-yk-sn1" id="lNK-uE-hkS"/>
                         <outlet property="selection" destination="QIz-Le-Ba4" id="ZBe-YD-CTV"/>
+                        <segue destination="zyO-18-Fex" kind="show" identifier="naviController" id="EAj-cw-tmm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -189,6 +198,9 @@
                     <navigationItem key="navigationItem" id="fLK-6x-5hh">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="3YQ-nR-BY0">
                             <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="logoutButton:" destination="Mcu-0K-n9y" id="xjr-5d-quD"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
