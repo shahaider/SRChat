@@ -19,6 +19,8 @@ class chatHelper {
 
     static let chathelp = chatHelper()
     var userIdentity : String?
+    var userDisplayName : String?
+    var useroneMsg : String?
 
     
     var FBref : DatabaseReference?
@@ -33,7 +35,7 @@ class chatHelper {
         self.FBref = Database.database().reference()
         
         print("******* \(userIdentity!) ************")
-        let MessageReference = self.FBref?.ref.child("Messages").child(userIdentity!)
+        let MessageReference = self.FBref?.ref.child("Messages")   //.child(userIdentity!)
 
         MessageReference?.childByAutoId().child("message").setValue("email Msg")
         
@@ -45,6 +47,14 @@ class chatHelper {
     
     func receiveMessage() {
     
+       let MessageRecievedRef = self.FBref?.child("Messages")
+        MessageRecievedRef?.observe(.value, with: { (snapshoot) in
+            print(snapshoot)
+            if let value = snapshoot.value {
+            
+                print(value)
+            }
+        })
     
     }
     

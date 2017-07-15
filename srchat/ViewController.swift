@@ -10,6 +10,7 @@ import UIKit
 import GoogleSignIn
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
@@ -29,7 +30,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     var confirmpassword : String?
 
     
-//    var ref : DatabaseReference?
+    var FBref : DatabaseReference?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -160,7 +161,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             if err == nil{
             print(user?.uid)
                 chatHelper.chathelp.userIdentity = (user?.uid)!
+//                chatHelper.chathelp.userDisplayName = (user?.displayName)!
                 self.nextVC()
+
             }
             else{
                 print(err)
@@ -191,6 +194,9 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     func nextVC(){
     
         performSegue(withIdentifier: "naviController", sender: self)
+        
+        
+
     }
     
 }

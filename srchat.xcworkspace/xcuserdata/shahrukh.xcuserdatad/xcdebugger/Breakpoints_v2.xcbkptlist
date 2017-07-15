@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "srchat/ViewController.swift"
-            timestampString = "521731860.577976"
+            timestampString = "521803684.534667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "submitButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "srchat/helper.swift"
-            timestampString = "521733135.790816"
+            filePath = "srchat/chatHelper.swift"
+            timestampString = "521803239.337792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "login()"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "receiveMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,13 +57,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "srchat/helper.swift"
-            timestampString = "521733137.74503"
+            filePath = "srchat/chatHelper.swift"
+            timestampString = "521802786.779667"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "81"
-            endingLineNumber = "81"
-            landmarkName = "login()"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "receiveMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,13 +73,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "srchat/helper.swift"
-            timestampString = "521733317.741068"
+            filePath = "srchat/chatHelper.swift"
+            timestampString = "521802911.540017"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "login()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "receiveMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,13 +89,61 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "srchat/helper.swift"
-            timestampString = "521733502.820067"
+            filePath = "srchat/chatHelper.swift"
+            timestampString = "521802913.29821"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "login()"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "receiveMessage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "srchat.chatHelper.receiveMessage () -&gt; ()"
+                  moduleName = "srchat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
+                  timestampString = "521821868.325203"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "213">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "srchat.chatHelper.(receiveMessage () -&gt; ()).(closure #1)"
+                  moduleName = "srchat"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
+                  timestampString = "521821868.328115"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "srchat/chatHelper.swift"
+            timestampString = "521803215.295082"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "receiveMessage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

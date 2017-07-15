@@ -15,18 +15,43 @@ import AVKit
 // Library that handle JSQ-VC
 import JSQMessagesViewController
 
+// FIREBASE LIBRARY
+import Firebase
+import FirebaseDatabase
+import FirebaseStorage
+import FirebaseAuth
+
 class chatViewController: JSQMessagesViewController {
 
     
     // VARIABLE THAT HOLD MESSAGE IN ARRAY FORMAT
     var messages = [JSQMessage]()
-
+    
+    // FIREBASE VARIABLE
+    
+    var FBref : DatabaseReference?
+    var FBHandle : DatabaseHandle?
+    
+    var msgRef = Database.database().reference().child("Messages")
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
 // INITIALIZE VARIABLE REQUIRED BY THIS VC
         senderId = "1"
         senderDisplayName = "ShahRukh"
+
+//        senderId = chatHelper.chathelp.userIdentity
+//        senderDisplayName = chatHelper.chathelp.userDisplayName
+        
+        print(senderId)
+        print(senderDisplayName)
+        
+        
+         obserMessage()
+        
         
     }
 
@@ -38,6 +63,76 @@ class chatViewController: JSQMessagesViewController {
     
   
     
+    func obserMessage(){
+        
+       FBHandle = msgRef.observe(.childAdded, with: { (snapshot) in
+        print(snapshot)
+        
+        if let value = snapshot.value as? [String : Any]{
+        
+            
+            
+            
+            let text = value["text"] as? String
+            let senderid = value["senderID"] as? String
+            let senderName = value["senderDisplay"] as? String
+            let mediatype = value["mediaType"] as! String
+            
+            switch mediatype{
+            
+                case "TEXT":
+                    self.messages.append(JSQMessage.init(senderId: senderid, displayName: senderName, text: text))
+
+                case "PHOTO":
+                    let fileUrl = value["fileURL"] as! String
+                    let url = URL(string: fileUrl)
+                    let data = NSData(contentsOf: url!)
+                    let picture = UIImage(data: data as! Data)
+                    let photo = JSQPhotoMediaItem(image: picture)
+                    self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: photo))
+
+                case "VIDEO":
+                    let fileUrl = value["fileURL"] as! String
+                    let url = URL(string: fileUrl)
+                    let fetchvdo = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
+                    self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: fetchvdo))
+                
+
+            
+            default:
+                print("UNKNOWN")
+            }
+            
+//            if mediatype == "TEXT"{
+//                self.messages.append(JSQMessage.init(senderId: senderid, displayName: senderName, text: text))
+//
+//            }
+//            if mediatype == "PHOTO"{
+//                
+//                let fileUrl = value["fileURL"] as! String
+//                let url = URL(string: fileUrl)
+//                let data = NSData(contentsOf: url!)
+//                let picture = UIImage(data: data as! Data)
+//                let photo = JSQPhotoMediaItem(image: picture)
+//                self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: photo))
+//
+//                
+//            }
+//            if mediatype == "VIDEO"{
+//                
+//                let fileUrl = value["fileURL"] as! String
+//                let url = URL(string: fileUrl)
+//                let fetchvdo = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
+//                self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: fetchvdo))
+//
+//            }
+
+            self.collectionView.reloadData()
+
+        }
+       })
+    
+    }
     
     
                     /*
@@ -101,14 +196,17 @@ class chatViewController: JSQMessagesViewController {
             */
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-        messages.append(JSQMessage.init(senderId: senderId, displayName: senderDisplayName, text: text))
+//        messages.append(JSQMessage.init(senderId: senderId, displayName: senderDisplayName, text: text))
+        var newMessage = msgRef.childByAutoId()
+        var messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT"]
+        newMessage.setValue(messageData)
         
        collectionView.reloadData()
         
         
         // TEST FIREBASE MESSAGE PUSH SERVICE
         
-        chatHelper.chathelp.placeMessage()
+//        chatHelper.chathelp.placeMessage()
 
     }
     
@@ -180,6 +278,64 @@ mediaPicker.mediaTypes = [type as String]
             }
         }
     }
+    
+    
+    // SENDING TO FIREBASE STORAGE
+    
+    
+    func sendMedia(picture: UIImage?, video:URL?){
+        
+        let storageRef = Storage.storage().reference()
+        let filepath = ("\(Auth.auth().currentUser!)/\(Date.timeIntervalSinceReferenceDate)")
+        
+        
+        if let picture = picture{
+        
+            let picData = UIImageJPEGRepresentation(picture, 0.1)
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpg"
+            
+            storageRef.child(filepath).putData(picData!, metadata: metaData) { (finalMD, err) in
+                if err != nil{
+                    print(err?.localizedDescription )
+                    return
+                }
+                let fileUrl = finalMD?.downloadURLs![0].absoluteString
+                
+                let newMessage = self.msgRef.childByAutoId()
+                var messageData = ["fileURL": fileUrl, "senderID": self.senderId, "senderDisplay": self.senderDisplayName, "mediaType": "PHOTO"]
+                newMessage.setValue(messageData)
+                
+            }
+
+        }
+        
+        else if let video = video {
+        
+            let vdoData = NSData(contentsOf: video)
+            let metaData = StorageMetadata()
+            metaData.contentType = "video/mp4"
+            
+            storageRef.child(filepath).putData(vdoData! as Data, metadata: metaData) { (finalMD, err) in
+                if err != nil{
+                    print(err)
+                    return
+                }
+                let fileUrl = finalMD?.downloadURLs![0].absoluteString
+                
+                let newMessage = self.msgRef.childByAutoId()
+                let messageData = ["fileURL": fileUrl, "senderID": self.senderId, "senderDisplay": self.senderDisplayName, "mediaType": "VIDEO"]
+                newMessage.setValue(messageData)
+                
+            }
+
+        
+        
+        
+        
+        }
+    
+    }
 }
 
 // EXTENSION:   MULTIMEDIA Message (IMAGEPICKER-VC-DELEGATE)
@@ -193,12 +349,15 @@ extension chatViewController: UIImagePickerControllerDelegate, UINavigationContr
         if let  picture = info[UIImagePickerControllerOriginalImage] as? UIImage {
         let photo = JSQPhotoMediaItem(image: picture)
         messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: photo))
+            sendMedia(picture:picture, video:nil)
         }
         
         // MESSAGE-CASE: MEDIA = VIDEO
         if let video = info[UIImagePickerControllerMediaURL] as? URL{
         let vdo = JSQVideoMediaItem(fileURL: video, isReadyToPlay: true)
             messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: vdo))
+            sendMedia(picture:nil, video:video)
+
         }
         
         self.dismiss(animated: true, completion: nil)

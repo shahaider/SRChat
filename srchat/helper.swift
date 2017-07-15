@@ -61,33 +61,8 @@ class helper{
     
     }
     
-    // LOGIN FUNCTION
 
-    func login(){
-        
-        print(self.enterValue.passwordValue)
-        print(self.enterValue.emailValue)
-
-//        Auth.auth().signIn(withEmail: enterValue.emailValue, password: enterValue.passwordValue, completion: { (loginUser, error) in
-//            
-//            print(loginUser?.email)
-//            
-//            if error != nil{
-//                print("********* \(error?.localizedDescription) *******" )
-//                self.errorMsg = "user or password incorrect"
-//                self.status = false
-//            }
-//
-//            else{
-//                print("************ Sign IN Success ***************")
-//                print(loginUser?.uid)
-//                self.errorMsg = ""
-//                self.status = true
-//            }
-//            
-//        })
-        
-    }
+   
     
     
     // GOOGLE LOGIN CODING
