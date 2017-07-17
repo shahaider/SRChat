@@ -21,11 +21,12 @@ class helper{
     static let Help = helper()
     
     var errorMsg : String?
-    var status : Bool?
+    var status : Bool? = false
     
     // variable for Firebase
     
     var ref : DatabaseReference?
+    var handle: DatabaseHandle?
     
     
     // ChatStruct variable
@@ -67,7 +68,7 @@ class helper{
     
     // GOOGLE LOGIN CODING
     
-    func loginInGoogle(userAuth:GIDAuthentication){
+    func loginInGoogle(userAuth:GIDAuthentication) -> Bool{
     
      let credential = GoogleAuthProvider.credential(withIDToken: userAuth.idToken, accessToken: userAuth.accessToken)
         
@@ -107,15 +108,19 @@ class helper{
                 userReference?.updateChildValues(value, withCompletionBlock: { (err, ref) in
                     if err != nil{
                         print (err?.localizedDescription)
-                        return
+                        return self.status = false
                     }
                     print("Successful SAVED")
+                    return self.status = true
                 })
 
             }
         }
            
     }
+        return status!
 }
+    
+    
 
 }

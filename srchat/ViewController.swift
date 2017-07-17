@@ -48,6 +48,25 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
     }
 
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(Auth.auth().currentUser)
+        
+        
+        // TO PERFORM NEXT VC ACTION IF PREVIOUS SIGNED IN & USER HAS NOT LOGGED OUT 
+        Auth.auth().addStateDidChangeListener { (authen, userDetail) in
+           
+            if userDetail != nil{
+            print(userDetail)
+                
+                self.nextVC()
+            }
+            else{
+            print("ACCESS DENIED")
+            }
+        }
+    }
  
     
     
@@ -182,10 +201,16 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         print (user.authentication)
-        helper.Help.loginInGoogle(userAuth:user.authentication)
         
-    
-        nextVC()
+        
+        if helper.Help.loginInGoogle(userAuth: user.authentication) == true{
+         nextVC()
+        }
+        
+        else{
+            return
+        }
+       
    
         
 

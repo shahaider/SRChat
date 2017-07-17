@@ -35,33 +35,55 @@ class chatViewController: JSQMessagesViewController {
     var msgRef = Database.database().reference().child("Messages")
     
     
+    let currentUserId = Auth.auth().currentUser?.uid
+
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 // INITIALIZE VARIABLE REQUIRED BY THIS VC
-        senderId = "1"
+        
+        senderId = currentUserId!
+        
+//        let match = (Auth.auth().currentUser?.email?.contains("srchat"))!
+//        print(match)
+//        if match == true{
+//        helper.Help.userINFO()
+//        }
+//        else{
+//        senderDisplayName = Auth.auth().currentUser?.displayName
+//            print(senderDisplayName)
+//        }
+        
+
         senderDisplayName = "ShahRukh"
 
-//        senderId = chatHelper.chathelp.userIdentity
-//        senderDisplayName = chatHelper.chathelp.userDisplayName
+
         
-        print(senderId)
-        print(senderDisplayName)
-        
-        
+        // RETRIEVE MESSAGE FROM DB
          obserMessage()
         
         
     }
 
+    // LOGOUT FUCNTION
+    
+    
     @IBAction func logoutButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
         
+        do {
+           try Auth.auth().signOut()
+
+        }catch{print("")}
+        print (Auth.auth().currentUser)
+
     }
     
     
   
+    // FUNCTION USE TO RETREIVE  INCOMING MESSAGE FROM FIREBASE SERVER
     
     func obserMessage(){
         
@@ -90,6 +112,17 @@ class chatViewController: JSQMessagesViewController {
                     let picture = UIImage(data: data as! Data)
                     let photo = JSQPhotoMediaItem(image: picture)
                     self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: photo))
+                 
+                    // identify incoming OR outgoing photo
+                    if self.senderId == senderid {
+                        photo?.appliesMediaViewMaskAsOutgoing = true
+
+                    }
+                    else{
+                photo?.appliesMediaViewMaskAsOutgoing = false
+                }
+                
+                
 
                 case "VIDEO":
                     let fileUrl = value["fileURL"] as! String
@@ -97,25 +130,21 @@ class chatViewController: JSQMessagesViewController {
                     let fetchvdo = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
                     self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: fetchvdo))
                 
-
+                    // identify incoming OR outgoing Video
+                    if self.senderId == senderid {
+                        fetchvdo?.appliesMediaViewMaskAsOutgoing = true
+                        
+                    }
+                    else{
+                        fetchvdo?.appliesMediaViewMaskAsOutgoing = false
+                }
+                
             
             default:
                 print("UNKNOWN")
             }
             
-//            if mediatype == "TEXT"{
-//                self.messages.append(JSQMessage.init(senderId: senderid, displayName: senderName, text: text))
-//
-//            }
-//            if mediatype == "PHOTO"{
-//                
-//                let fileUrl = value["fileURL"] as! String
-//                let url = URL(string: fileUrl)
-//                let data = NSData(contentsOf: url!)
-//                let picture = UIImage(data: data as! Data)
-//                let photo = JSQPhotoMediaItem(image: picture)
-//                self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: photo))
-//
+            // IF-ELSE METHOD
 //                
 //            }
 //            if mediatype == "VIDEO"{
@@ -155,7 +184,7 @@ class chatViewController: JSQMessagesViewController {
                 // CREATE CELL VARIABLE AND LINKING PROTOTYPE VIEWCELL
         
         let cell = super.collectionView(collectionView, cellForItemAt: indexPath) as! JSQMessagesCollectionViewCell
-        print("number of cell :\(messages.count)" )
+//        print("number of cell :\(messages.count)" )
         return cell
     }
     
@@ -169,16 +198,27 @@ class chatViewController: JSQMessagesViewController {
     }
     
     
-    // CREATING messageBubble Image
+    // CREATING messageBubble Image (CUSTOMIZABLE)
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAt indexPath: IndexPath!) -> JSQMessageBubbleImageDataSource! {
+        
         let bubbleFactory = JSQMessagesBubbleImageFactory()
+
+        let message = messages[indexPath.item]
+        
+        if message.senderId == senderId {
+        
         return bubbleFactory?.outgoingMessagesBubbleImage(with:.blue)
+        }
+        else{
+        return bubbleFactory?.incomingMessagesBubbleImage(with: .green)
+        }
     }
     
     
     // CREATING Avatar Method
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
+        
         return nil
     }
 
@@ -197,12 +237,13 @@ class chatViewController: JSQMessagesViewController {
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
 //        messages.append(JSQMessage.init(senderId: senderId, displayName: senderDisplayName, text: text))
-        var newMessage = msgRef.childByAutoId()
-        var messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT"]
+        let newMessage = msgRef.childByAutoId()
+        let messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT"]
         newMessage.setValue(messageData)
         
        collectionView.reloadData()
         
+        finishSendingMessage()
         
         // TEST FIREBASE MESSAGE PUSH SERVICE
         
@@ -225,10 +266,12 @@ class chatViewController: JSQMessagesViewController {
         
         let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (AlertAction) in
         }
+       
         // SELECTING IMAGE
         let photo = UIAlertAction(title: "PHOTO", style: .default) { (AlertAction) in
             
-            // FUNCTION TO HANDLE MEDIA TYPE
+        
+        // FUNCTION TO HANDLE MEDIA TYPE
             self.getMediaFrom(type:kUTTypeImage)
         }
         
@@ -252,11 +295,14 @@ class chatViewController: JSQMessagesViewController {
    
     // FUNCTION WHICH WILL DECIDE WHETHER TO POP-UP IMAGE OR VIDEO "ALBUM"
     func getMediaFrom(type: CFString){
-                let mediaPicker = UIImagePickerController()
-               mediaPicker.delegate = self
         
-mediaPicker.mediaTypes = [type as String]
-    present(mediaPicker, animated: true, completion: nil)
+        let mediaPicker = UIImagePickerController()
+        mediaPicker.delegate = self
+        
+
+        mediaPicker.mediaTypes = [type as String]
+    
+        present(mediaPicker, animated: true, completion: nil)
     }
     
   
@@ -285,10 +331,13 @@ mediaPicker.mediaTypes = [type as String]
     
     func sendMedia(picture: UIImage?, video:URL?){
         
+        
+        // FIREBASE STORAGE VARIABLE INITIALIZE
         let storageRef = Storage.storage().reference()
         let filepath = ("\(Auth.auth().currentUser!)/\(Date.timeIntervalSinceReferenceDate)")
         
         
+        // STORING PICTURE
         if let picture = picture{
         
             let picData = UIImageJPEGRepresentation(picture, 0.1)
@@ -310,6 +359,8 @@ mediaPicker.mediaTypes = [type as String]
 
         }
         
+            
+            // STORING VIDEO
         else if let video = video {
         
             let vdoData = NSData(contentsOf: video)
@@ -342,20 +393,26 @@ mediaPicker.mediaTypes = [type as String]
 extension chatViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        print("DID PRINT")
-//        print(info)
+
         
         // MESSAGE-CASE: MEDIA = PHOTO
+
         if let  picture = info[UIImagePickerControllerOriginalImage] as? UIImage {
-        let photo = JSQPhotoMediaItem(image: picture)
-        messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: photo))
+
+// DUMPY SENDER PHOTO (PRACTICE)
+            //        let photo = JSQPhotoMediaItem(image: picture)
+            //        messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: photo))
             sendMedia(picture:picture, video:nil)
         }
         
         // MESSAGE-CASE: MEDIA = VIDEO
+
         if let video = info[UIImagePickerControllerMediaURL] as? URL{
-        let vdo = JSQVideoMediaItem(fileURL: video, isReadyToPlay: true)
-            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: vdo))
+        
+// DUMPY SENDER VIDEO (PRACTICE)
+//            let vdo = JSQVideoMediaItem(fileURL: video, isReadyToPlay: true)
+//            messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, media: vdo))
+
             sendMedia(picture:nil, video:video)
 
         }

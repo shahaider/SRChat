@@ -34,13 +34,14 @@ class chatHelper {
     
         self.FBref = Database.database().reference()
         
-        print("******* \(userIdentity!) ************")
         let MessageReference = self.FBref?.ref.child("Messages")   //.child(userIdentity!)
 
         MessageReference?.childByAutoId().child("message").setValue("email Msg")
         
         
-        print("***** MESSAGE STORE AT DB ***********") 
+        print("***** MESSAGE STORE AT DB ***********")
+        
+    
         
     }
     
