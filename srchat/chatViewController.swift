@@ -33,7 +33,7 @@ class chatViewController: JSQMessagesViewController {
     var FBHandle : DatabaseHandle?
     
     var msgRef = Database.database().reference().child("Messages")
-    
+    var userRef = Database.database().reference().child("users")
     
     let currentUserId = Auth.auth().currentUser?.uid
 
@@ -45,20 +45,34 @@ class chatViewController: JSQMessagesViewController {
 // INITIALIZE VARIABLE REQUIRED BY THIS VC
         
         senderId = currentUserId!
+        senderDisplayName = ""
         
-//        let match = (Auth.auth().currentUser?.email?.contains("srchat"))!
-//        print(match)
-//        if match == true{
-//        helper.Help.userINFO()
-//        }
-//        else{
-//        senderDisplayName = Auth.auth().currentUser?.displayName
-//            print(senderDisplayName)
-//        }
         
+        // Retrieve User detatil
+        
+        print(senderId)
+     FBHandle = userRef.observe(.childAdded, with: { (userSnap) in
+      
+        print(userSnap.key)
+        let id = userSnap.key
+        
+        
+        
+        if self.senderId == id {
+            
+        if let detail = userSnap.value as? [String:Any]{
+        
+            
+            let DName = detail["Name"] as! String
+            self.senderDisplayName = DName
+        }
+            print(self.senderDisplayName)
 
-        senderDisplayName = "ShahRukh"
+        print("**********")
+        }
+     })
 
+//        senderDisplayName = "ShahRukh"
 
         
         // RETRIEVE MESSAGE FROM DB
@@ -88,13 +102,9 @@ class chatViewController: JSQMessagesViewController {
     func obserMessage(){
         
        FBHandle = msgRef.observe(.childAdded, with: { (snapshot) in
-        print(snapshot)
         
         if let value = snapshot.value as? [String : Any]{
-        
-            
-            
-            
+
             let text = value["text"] as? String
             let senderid = value["senderID"] as? String
             let senderName = value["senderDisplay"] as? String
@@ -144,17 +154,6 @@ class chatViewController: JSQMessagesViewController {
                 print("UNKNOWN")
             }
             
-            // IF-ELSE METHOD
-//                
-//            }
-//            if mediatype == "VIDEO"{
-//                
-//                let fileUrl = value["fileURL"] as! String
-//                let url = URL(string: fileUrl)
-//                let fetchvdo = JSQVideoMediaItem(fileURL: url, isReadyToPlay: true)
-//                self.messages.append(JSQMessage(senderId: senderid, displayName: senderName, media: fetchvdo))
-//
-//            }
 
             self.collectionView.reloadData()
 
@@ -219,7 +218,7 @@ class chatViewController: JSQMessagesViewController {
     
     override func collectionView(_ collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAt indexPath: IndexPath!) -> JSQMessageAvatarImageDataSource! {
         
-        return nil
+        return JSQMessagesAvatarImageFactory.avatarImage(with: UIImage(named: "person"), diameter: 30)
     }
 
 
@@ -379,11 +378,7 @@ class chatViewController: JSQMessagesViewController {
                 newMessage.setValue(messageData)
                 
             }
-
-        
-        
-        
-        
+      
         }
     
     }
