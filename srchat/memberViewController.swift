@@ -90,14 +90,24 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
         let sortedResult = uidArray.sorted()
         
         let reduceResult = sortedResult.reduce("",{$0+$1})
-        print(reduceResult)
+        print("Channel Name:" + reduceResult)
+        self.channelNameGenerator = reduceResult
         
         
         
-//        performSegue(withIdentifier: "chatRoomSegue", sender: nil)
+        performSegue(withIdentifier: "chatRoomSegue", sender: nil)
     }
     
-   
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let dest = segue.destination as! chatViewController
+        
+        dest.channelName = self.channelNameGenerator
+        
+        
+    }
     
     
     //                  ************** LOGOUT BUTTON *******************

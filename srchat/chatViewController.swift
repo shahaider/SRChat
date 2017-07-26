@@ -24,6 +24,10 @@ import FirebaseAuth
 class chatViewController: JSQMessagesViewController {
 
     
+    // Segue Variable
+    
+    var channelName: String?
+    
     // VARIABLE THAT HOLD MESSAGE IN ARRAY FORMAT
     var messages = [JSQMessage]()
     
