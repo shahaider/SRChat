@@ -7,17 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct chatRoom{
 
-    static var userInfo = chatRoom(nameValue: "", emailValue: "", passwordValue: "", confirmpasswordValue: "")
+    static var userInfo : chatRoom!
    
     
     var nameValue : String
     var emailValue : String
     var passwordValue: String
     var confirmpasswordValue: String
+    var profileImage : UIImage
     
 
 }
+ 

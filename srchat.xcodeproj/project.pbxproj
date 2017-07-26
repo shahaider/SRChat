@@ -14,6 +14,8 @@
 		F26447DD1F14EB5300001B7A /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DC1F14EB5300001B7A /* customButton.swift */; };
 		F26447DF1F14F40400001B7A /* customSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F26447DE1F14F40400001B7A /* customSegmentedControl.swift */; };
 		F26447E11F150E2400001B7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F26447E01F150E2400001B7A /* GoogleService-Info.plist */; };
+		F27FD40F1F262BB400F889BF /* memberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FD40E1F262BB300F889BF /* memberViewController.swift */; };
+		F27FD4111F262BF300F889BF /* memberTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F27FD4101F262BF300F889BF /* memberTableViewCell.swift */; };
 		F2A26D1A1F163CEE007E4F6E /* helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A26D191F163CEE007E4F6E /* helper.swift */; };
 		F2A26D1D1F163D48007E4F6E /* chatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A26D1C1F163D48007E4F6E /* chatViewController.swift */; };
 		F2A26D211F163EF6007E4F6E /* chatStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2A26D201F163EF6007E4F6E /* chatStruct.swift */; };
@@ -27,12 +29,15 @@
 /* Begin PBXFileReference section */
 		030446C51EE50A814AA9DB5C /* Pods_srchat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_srchat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48CA056830E1C49B81D6B481 /* Pods-srchat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-srchat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-srchat/Pods-srchat.debug.xcconfig"; sourceTree = "<group>"; };
+		F20AE8FD1F2100FA00128F9F /* srchat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = srchat.entitlements; sourceTree = "<group>"; };
 		F22081FD1F18A3D400351B10 /* chatHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatHelper.swift; sourceTree = "<group>"; };
 		F26447D81F14CD9900001B7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F26447DA1F14E37200001B7A /* customView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customView.swift; sourceTree = "<group>"; };
 		F26447DC1F14EB5300001B7A /* customButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
 		F26447DE1F14F40400001B7A /* customSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customSegmentedControl.swift; sourceTree = "<group>"; };
 		F26447E01F150E2400001B7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F27FD40E1F262BB300F889BF /* memberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberViewController.swift; sourceTree = "<group>"; };
+		F27FD4101F262BF300F889BF /* memberTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberTableViewCell.swift; sourceTree = "<group>"; };
 		F2A26D191F163CEE007E4F6E /* helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = helper.swift; sourceTree = "<group>"; };
 		F2A26D1C1F163D48007E4F6E /* chatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatViewController.swift; sourceTree = "<group>"; };
 		F2A26D201F163EF6007E4F6E /* chatStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = chatStruct.swift; sourceTree = "<group>"; };
@@ -91,6 +96,8 @@
 			children = (
 				F2EA2CAA1F14CBC700EF605E /* ViewController.swift */,
 				F2A26D1C1F163D48007E4F6E /* chatViewController.swift */,
+				F27FD40E1F262BB300F889BF /* memberViewController.swift */,
+				F27FD4101F262BF300F889BF /* memberTableViewCell.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -135,6 +142,7 @@
 		F2EA2CA71F14CBC700EF605E /* srchat */ = {
 			isa = PBXGroup;
 			children = (
+				F20AE8FD1F2100FA00128F9F /* srchat.entitlements */,
 				F2EA2CA81F14CBC700EF605E /* AppDelegate.swift */,
 				F2A26D1B1F163D02007E4F6E /* customization */,
 				F2A26D1E1F163D6D007E4F6E /* Controller */,
@@ -182,7 +190,13 @@
 				TargetAttributes = {
 					F2EA2CA41F14CBC500EF605E = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = SUBZ24DP5B;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};
@@ -280,7 +294,9 @@
 				F22081FE1F18A3D400351B10 /* chatHelper.swift in Sources */,
 				F26447DB1F14E37300001B7A /* customView.swift in Sources */,
 				F2A26D1D1F163D48007E4F6E /* chatViewController.swift in Sources */,
+				F27FD40F1F262BB400F889BF /* memberViewController.swift in Sources */,
 				F2EA2CA91F14CBC700EF605E /* AppDelegate.swift in Sources */,
+				F27FD4111F262BF300F889BF /* memberTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +420,7 @@
 			baseConfigurationReference = 48CA056830E1C49B81D6B481 /* Pods-srchat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SUBZ24DP5B;
 				INFOPLIST_FILE = srchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.perception.srchat;
@@ -417,6 +434,7 @@
 			baseConfigurationReference = F7E51E7579BC77C6752A2E2C /* Pods-srchat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SUBZ24DP5B;
 				INFOPLIST_FILE = srchat/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.perception.srchat;

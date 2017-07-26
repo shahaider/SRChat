@@ -73,8 +73,8 @@
                   symbolName = "srchat.chatHelper.receiveMessage () -&gt; ()"
                   moduleName = "srchat"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
-                  timestampString = "522236543.184272"
+                  urlString = "file:///Users/shahrukh/Documents/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
+                  timestampString = "522760186.174219"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -88,8 +88,8 @@
                   symbolName = "srchat.chatHelper.(receiveMessage () -&gt; ()).(closure #1)"
                   moduleName = "srchat"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
-                  timestampString = "522236543.187193"
+                  urlString = "file:///Users/shahrukh/Documents/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
+                  timestampString = "522760186.177553"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -121,13 +121,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "srchat/chatViewController.swift"
-            timestampString = "522236506.124405"
+            filePath = "srchat/helper.swift"
+            timestampString = "522692479.88367"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "emailReg()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -137,157 +137,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "srchat/chatViewController.swift"
-            timestampString = "522236265.564337"
+            filePath = "srchat/helper.swift"
+            timestampString = "522694095.414844"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "srchat/chatViewController.swift"
-            timestampString = "522236265.564337"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "srchat.chatViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "srchat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatViewController.swift"
-                  timestampString = "522236543.23102"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "680">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "srchat.chatViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "srchat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatViewController.swift"
-                  timestampString = "522236543.234027"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "1181">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "srchat/chatViewController.swift"
-            timestampString = "522236265.564337"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "srchat/chatViewController.swift"
-            timestampString = "522236265.564337"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "srchat.chatViewController.viewDidLoad () -&gt; ()"
-                  moduleName = "srchat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatViewController.swift"
-                  timestampString = "522236543.246248"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "54"
-                  endingLineNumber = "54"
-                  offsetFromSymbolStart = "1061">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "srchat.chatViewController.(viewDidLoad () -&gt; ()).(closure #1)"
-                  moduleName = "srchat"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shahrukh/Google%20Drive/Programming%20Workspace/ios/srchat/srchat/chatViewController.swift"
-                  timestampString = "522236543.249237"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "56"
-                  endingLineNumber = "56"
-                  offsetFromSymbolStart = "26">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "srchat/chatViewController.swift"
-            timestampString = "522236265.564337"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "srchat/chatViewController.swift"
-            timestampString = "522236460.267108"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "emailReg()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

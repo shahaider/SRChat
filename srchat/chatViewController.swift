@@ -235,7 +235,8 @@ class chatViewController: JSQMessagesViewController {
             */
     override func didPressSend(_ button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: Date!) {
         
-//        messages.append(JSQMessage.init(senderId: senderId, displayName: senderDisplayName, text: text))
+        
+        // SAVE MESSAGE ON FIREBASE
         let newMessage = msgRef.childByAutoId()
         let messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT"]
         newMessage.setValue(messageData)
@@ -244,9 +245,7 @@ class chatViewController: JSQMessagesViewController {
         
         finishSendingMessage()
         
-        // TEST FIREBASE MESSAGE PUSH SERVICE
-        
-//        chatHelper.chathelp.placeMessage()
+    
 
     }
     

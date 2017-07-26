@@ -12,7 +12,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
-class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
+class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     // associate storyboard components
     @IBOutlet weak var selection: customSegmentedControl!
@@ -21,6 +21,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmpasswordTextField: UITextField!
     @IBOutlet weak var notification: UILabel!
+    @IBOutlet weak var userImage: UIImageView!
    
     // variable for VC
     
@@ -28,13 +29,19 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
     var email: String?
     var password : String?
     var confirmpassword : String?
-
+    var userDP : UIImage?
+    
+    
+    
     
     var FBref : DatabaseReference?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        var tapImage = UITapGestureRecognizer(target: self, action: #selector(imagePick))
+        self.userImage.addGestureRecognizer(tapImage)
         
         // GOOGLE LOGIN STUFF
         GIDSignIn.sharedInstance().uiDelegate = self
@@ -48,6 +55,39 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
     }
 
+    func imagePick(){
+    
+        
+        let imagePicker = UIImagePickerController()
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        var selectedImage = UIImage(named: "person")
+
+         if let edittedImage = info["UIImagePickerControllerEditedImage"] as? UIImage{
+            
+            selectedImage = edittedImage
+        }
+
+        
+        else if let orignalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage{
+         selectedImage = orignalImage
+        }
+        
+        if let selected = selectedImage {
+            userDP = selected
+            userImage.image = selected
+        }
+    dismiss(animated: true, completion: nil)
+    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -90,6 +130,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         {
        nameTextField.isHidden = true
     confirmpasswordTextField.isHidden = true
+            userImage.isUserInteractionEnabled = false
    
         }
             
@@ -105,6 +146,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         else{
             nameTextField.isHidden = false
             confirmpasswordTextField.isHidden = false
+            userImage.isUserInteractionEnabled = true
+
         }
     }
     
@@ -139,7 +182,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
         
 
         if selection.selectedSegmentIndex == 1{
-               let reguserInfo: chatRoom = chatRoom(nameValue: name!, emailValue: email!, passwordValue: password!, confirmpasswordValue: confirmpassword!)
+            let reguserInfo: chatRoom = chatRoom(nameValue: name!, emailValue: email!, passwordValue: password!, confirmpasswordValue: confirmpassword!,profileImage: userDP!)
             if password! == confirmpassword! {
                 print("value: " + password! + " " + confirmpassword!)
                 
@@ -147,7 +190,8 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
                 chatRoom.userInfo = reguserInfo
 
 // CALL EMAIL REGISTTER FUCNTION
-                helper.Help.emailReg()
+                
+            helper.Help.emailReg() 
                 nextVC()
                 
             }
@@ -171,7 +215,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
             
         else{
            
-            let loginuserInfo: chatRoom = chatRoom(nameValue: "", emailValue: email!, passwordValue: password!, confirmpasswordValue: "")
+            let loginuserInfo: chatRoom = chatRoom(nameValue: "", emailValue: email!, passwordValue: password!, confirmpasswordValue: "",profileImage: UIImage.init())
             
             chatRoom.userInfo = loginuserInfo
 
