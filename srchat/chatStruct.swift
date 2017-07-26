@@ -20,6 +20,7 @@ struct chatRoom{
     var passwordValue: String
     var confirmpasswordValue: String
     var profileImage : UIImage
+    var uID = ""
     
 
 }

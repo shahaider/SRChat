@@ -74,7 +74,7 @@
                   moduleName = "srchat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shahrukh/Documents/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
-                  timestampString = "522760186.174219"
+                  timestampString = "522777824.686432"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -89,7 +89,7 @@
                   moduleName = "srchat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shahrukh/Documents/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
-                  timestampString = "522760186.177553"
+                  timestampString = "522777824.689615"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -112,38 +112,6 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "receiveMessage()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "srchat/helper.swift"
-            timestampString = "522692479.88367"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "emailReg()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "srchat/helper.swift"
-            timestampString = "522694095.414844"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "emailReg()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

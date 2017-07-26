@@ -17,8 +17,9 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
     var dbRef : DatabaseReference?
     var dbHandle: DatabaseHandle?
     
+    var channelNameGenerator: String?
+    
    
-    var checkTable = ["shahrukh", "Sarim"]
     var userTable = [chatRoom]()
     
     override func viewDidLoad() {
@@ -37,15 +38,18 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
             
                 print(value)
                 let name = value["Name"] as! String
+                let id = value["uID"] as! String
+                
                 let link = value["ProfileDP"] as! String
                 let piclink = URL(string: link)
                 let picData = NSData(contentsOf: piclink!)
                 let DP = UIImage(data: picData as! Data)
                 
-                let resultData = chatRoom(nameValue: name, emailValue: "", passwordValue: "", confirmpasswordValue: "", profileImage: DP!)
+                if id != (Auth.auth().currentUser?.uid)!{
+                let resultData = chatRoom(nameValue: name, emailValue: "", passwordValue: "", confirmpasswordValue: "", profileImage: DP!,uID: id as! String)
                 self.userTable.append(resultData)
                 self.memberList.reloadData()
-
+                }
             }
 //
 
@@ -60,17 +64,15 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return userTable.count
-        return checkTable.count
+        return userTable.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "memberCell") as! memberTableViewCell
         
-//        cell.memberName.text = userTable[indexPath.row].nameValue
-//        cell.userPic.image = userTable[indexPath.row].profileImage
+        cell.memberName.text = userTable[indexPath.row].nameValue
+        cell.userPic.image = userTable[indexPath.row].profileImage
         
-        cell.memberName.text = checkTable[indexPath.row]
         
         return cell
     }
@@ -80,7 +82,19 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
        // Segue with CHAT ViewController
-        performSegue(withIdentifier: "chatRoomSegue", sender: nil)
+        let selectedUser = userTable[indexPath.row].uID
+        let signupUser = (Auth.auth().currentUser?.uid)!
+        
+        let uidArray = [signupUser, selectedUser]
+        
+        let sortedResult = uidArray.sorted()
+        
+        let reduceResult = sortedResult.reduce("",{$0+$1})
+        print(reduceResult)
+        
+        
+        
+//        performSegue(withIdentifier: "chatRoomSegue", sender: nil)
     }
     
    

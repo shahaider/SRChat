@@ -182,7 +182,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, 
         
 
         if selection.selectedSegmentIndex == 1{
-            let reguserInfo: chatRoom = chatRoom(nameValue: name!, emailValue: email!, passwordValue: password!, confirmpasswordValue: confirmpassword!,profileImage: userDP!)
+            let reguserInfo: chatRoom = chatRoom(nameValue: name!, emailValue: email!, passwordValue: password!, confirmpasswordValue: confirmpassword!,profileImage: userDP!, uID: "")
             if password! == confirmpassword! {
                 print("value: " + password! + " " + confirmpassword!)
                 
@@ -215,7 +215,7 @@ class ViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate, 
             
         else{
            
-            let loginuserInfo: chatRoom = chatRoom(nameValue: "", emailValue: email!, passwordValue: password!, confirmpasswordValue: "",profileImage: UIImage.init())
+            let loginuserInfo: chatRoom = chatRoom(nameValue: "", emailValue: email!, passwordValue: password!, confirmpasswordValue: "",profileImage: UIImage.init(), uID: "")
             
             chatRoom.userInfo = loginuserInfo
 
