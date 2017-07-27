@@ -12,5 +12,6 @@ class memberTableViewCell: UITableViewCell {
 
     @IBOutlet weak var memberName: UILabel!
     @IBOutlet weak var userPic: UIImageView!
+    @IBOutlet weak var alertImage: UIImageView!
     
 }

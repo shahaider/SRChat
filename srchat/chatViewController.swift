@@ -27,6 +27,8 @@ class chatViewController: JSQMessagesViewController {
     // Segue Variable
     
     var channelName: String?
+    var receiverID: String?
+    
     
     // VARIABLE THAT HOLD MESSAGE IN ARRAY FORMAT
     var messages = [JSQMessage]()
@@ -45,6 +47,9 @@ class chatViewController: JSQMessagesViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        print (channelName! + " " + receiverID!)
 
 // INITIALIZE VARIABLE REQUIRED BY THIS VC
         
@@ -105,7 +110,7 @@ class chatViewController: JSQMessagesViewController {
     
     func obserMessage(){
         
-       FBHandle = msgRef.observe(.childAdded, with: { (snapshot) in
+       FBHandle = msgRef.child(channelName!).observe(.childAdded, with: { (snapshot) in
         
         if let value = snapshot.value as? [String : Any]{
 
@@ -241,9 +246,12 @@ class chatViewController: JSQMessagesViewController {
         
         
         // SAVE MESSAGE ON FIREBASE
-        let newMessage = msgRef.childByAutoId()
+        let newMessage = msgRef.child(channelName!).childByAutoId()
         let messageData = ["text": text, "senderID": senderId, "senderDisplay": senderDisplayName, "mediaType": "TEXT"]
         newMessage.setValue(messageData)
+        
+        // ALERT = TRUE
+        msgRef.child(channelName!).child("Alert").setValue("TRUE")
         
        collectionView.reloadData()
         
@@ -353,9 +361,14 @@ class chatViewController: JSQMessagesViewController {
                 }
                 let fileUrl = finalMD?.downloadURLs![0].absoluteString
                 
-                let newMessage = self.msgRef.childByAutoId()
+                
+                // UPDATE FIREBASE
+                let newMessage = self.msgRef.child(self.channelName!).childByAutoId()
                 var messageData = ["fileURL": fileUrl, "senderID": self.senderId, "senderDisplay": self.senderDisplayName, "mediaType": "PHOTO"]
                 newMessage.setValue(messageData)
+                
+                // ALERT = TRUE
+                self.msgRef.child(self.channelName!).child("Alert").setValue("TRUE")
                 
             }
 
@@ -376,9 +389,13 @@ class chatViewController: JSQMessagesViewController {
                 }
                 let fileUrl = finalMD?.downloadURLs![0].absoluteString
                 
-                let newMessage = self.msgRef.childByAutoId()
+                // UPDATE FIREBASE
+                let newMessage = self.msgRef.child(self.channelName!).childByAutoId()
                 let messageData = ["fileURL": fileUrl, "senderID": self.senderId, "senderDisplay": self.senderDisplayName, "mediaType": "VIDEO"]
                 newMessage.setValue(messageData)
+                
+                // ALERT = TRUE
+                self.msgRef.child(self.channelName!).child("Alert").setValue("TRUE")
                 
             }
       

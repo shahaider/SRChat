@@ -17,7 +17,11 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
     var dbRef : DatabaseReference?
     var dbHandle: DatabaseHandle?
     
+    var alertRef : DatabaseReference?
+    var alertHandle: DatabaseHandle?
+    
     var channelNameGenerator: String?
+    var recieverID: String?
     
    
     var userTable = [chatRoom]()
@@ -47,14 +51,16 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
                 
                 if id != (Auth.auth().currentUser?.uid)!{
                 let resultData = chatRoom(nameValue: name, emailValue: "", passwordValue: "", confirmpasswordValue: "", profileImage: DP!,uID: id as! String)
+                    
+                    
                 self.userTable.append(resultData)
                 self.memberList.reloadData()
                 }
             }
-//
 
         })
         
+       
     
     }
 
@@ -74,6 +80,38 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
         cell.userPic.image = userTable[indexPath.row].profileImage
         
         
+        // **********
+       var friendID = userTable[indexPath.row].uID
+        
+        print (friendID)
+        let yourID = (Auth.auth().currentUser?.uid)!
+        print(yourID)
+        let uidArray = [friendID, yourID]
+        
+        let sortedResult = uidArray.sorted()
+        
+        let reduceResult = sortedResult.reduce("",{$0+$1})
+        print("Channel Name:" + reduceResult)
+        
+        
+        alertRef = Database.database().reference()
+        alertHandle = dbRef?.child("Messages").child(reduceResult).observe(.childAdded, with: { (alertSnap) in
+            
+            
+            if let value = alertSnap.value as? String{
+                
+                print(value)
+                if value == "TRUE"{
+                cell.alertImage.isHidden = false
+                }
+                else{
+                    cell.alertImage.isHidden = true
+
+                }
+            }
+        })
+        
+        
         return cell
     }
    
@@ -83,6 +121,9 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
        
        // Segue with CHAT ViewController
         let selectedUser = userTable[indexPath.row].uID
+        
+        self.recieverID = selectedUser
+        
         let signupUser = (Auth.auth().currentUser?.uid)!
         
         let uidArray = [signupUser, selectedUser]
@@ -93,6 +134,12 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
         print("Channel Name:" + reduceResult)
         self.channelNameGenerator = reduceResult
         
+        // Disable Alert image
+        
+        dbRef = Database.database().reference()
+      dbRef?.child("Messages").child(channelNameGenerator!).child("Alert").setValue("False")
+        
+    memberList.reloadData()
         
         
         performSegue(withIdentifier: "chatRoomSegue", sender: nil)
@@ -105,6 +152,7 @@ class memberViewController: UIViewController, UITableViewDataSource,UITableViewD
         let dest = segue.destination as! chatViewController
         
         dest.channelName = self.channelNameGenerator
+        dest.receiverID = self.recieverID
         
         
     }

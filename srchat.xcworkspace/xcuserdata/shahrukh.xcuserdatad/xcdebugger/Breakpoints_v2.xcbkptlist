@@ -74,7 +74,7 @@
                   moduleName = "srchat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shahrukh/Documents/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
-                  timestampString = "522779300.745444"
+                  timestampString = "522848169.952284"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "52"
@@ -89,7 +89,7 @@
                   moduleName = "srchat"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shahrukh/Documents/Programming%20Workspace/ios/srchat/srchat/chatHelper.swift"
-                  timestampString = "522779300.748506"
+                  timestampString = "522848169.955175"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
@@ -112,6 +112,38 @@
             startingLineNumber = "56"
             endingLineNumber = "56"
             landmarkName = "receiveMessage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "srchat/chatViewController.swift"
+            timestampString = "522838307.347324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "srchat/chatViewController.swift"
+            timestampString = "522838307.347324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -248,6 +248,13 @@
                                                                 <constraint firstAttribute="width" constant="35" id="c4x-zL-Au4"/>
                                                             </constraints>
                                                         </imageView>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red" translatesAutoresizingMaskIntoConstraints="NO" id="dnu-aU-49d">
+                                                            <rect key="frame" x="32" y="0.0" width="15" height="15.000000000000004"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="15" id="IPq-A8-lmA"/>
+                                                                <constraint firstAttribute="width" constant="15" id="vXK-XV-dlD"/>
+                                                            </constraints>
+                                                        </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqH-Xj-AC6">
                                                             <rect key="frame" x="93" y="13.999999999999998" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -258,9 +265,11 @@
                                                     <color key="backgroundColor" red="0.49863293180000001" green="0.68329838909999996" blue="0.85468517300000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="Dym-js-XfU" secondAttribute="bottom" constant="8" id="8wj-T1-HQH"/>
+                                                        <constraint firstItem="dnu-aU-49d" firstAttribute="leading" secondItem="Dym-js-XfU" secondAttribute="trailing" constant="-11" id="A1c-2j-ZFd"/>
                                                         <constraint firstAttribute="bottom" secondItem="xqH-Xj-AC6" secondAttribute="bottom" constant="15" id="VjP-Nw-4ow"/>
                                                         <constraint firstItem="Dym-js-XfU" firstAttribute="leading" secondItem="AYA-ZZ-nNB" secondAttribute="leading" constant="8" id="VnJ-x2-vbX"/>
                                                         <constraint firstItem="Dym-js-XfU" firstAttribute="top" secondItem="AYA-ZZ-nNB" secondAttribute="top" constant="6" id="aIr-LI-ZQM"/>
+                                                        <constraint firstItem="dnu-aU-49d" firstAttribute="top" secondItem="AYA-ZZ-nNB" secondAttribute="top" id="dfY-VK-PXC"/>
                                                         <constraint firstItem="xqH-Xj-AC6" firstAttribute="leading" secondItem="Dym-js-XfU" secondAttribute="trailing" constant="50" id="gUR-PX-Hde"/>
                                                         <constraint firstItem="xqH-Xj-AC6" firstAttribute="top" secondItem="AYA-ZZ-nNB" secondAttribute="top" constant="14" id="t4E-zC-eQT"/>
                                                     </constraints>
@@ -274,6 +283,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="alertImage" destination="dnu-aU-49d" id="Fcl-0p-gl3"/>
                                             <outlet property="memberName" destination="xqH-Xj-AC6" id="N21-gg-0Ge"/>
                                             <outlet property="userPic" destination="Dym-js-XfU" id="7Qz-7M-OB2"/>
                                         </connections>
@@ -333,6 +343,7 @@
     <resources>
         <image name="google" width="128" height="128"/>
         <image name="person" width="254" height="254"/>
+        <image name="red" width="128" height="128"/>
         <image name="srchat" width="512" height="512"/>
     </resources>
 </document>
